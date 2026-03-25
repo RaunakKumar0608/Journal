@@ -40,5 +40,9 @@ public class service {
         dingrepo.deleteAll();
         return true;
     }
+    
+    public Ding findByTitle(String name){
+        return dingrepo.findByTitle(name);
+    }
 
 }
