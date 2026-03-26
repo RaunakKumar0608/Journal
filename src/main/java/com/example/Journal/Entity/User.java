@@ -9,8 +9,10 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 @Document(collection = "user")
 @Data
+@RequiredArgsConstructor
 public class User {
     @Id
     private ObjectId id;

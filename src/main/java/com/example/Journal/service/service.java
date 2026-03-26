@@ -42,7 +42,7 @@ public class service {
     }
     
     public Ding findByTitle(String name){
-        return dingrepo.findByTitle(name);
+        return dingrepo.findBytitle(name);
     }
 
 }

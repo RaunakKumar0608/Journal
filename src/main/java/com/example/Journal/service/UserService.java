@@ -24,7 +24,7 @@ public List<User> getUsers(){
     return repo.findAll();
 }
 
-public User findByUsername(String username){
-    return repo.findByUsername(username);
+public User findByusername(String username){
+    return repo.findByusername(username);
 }
 }

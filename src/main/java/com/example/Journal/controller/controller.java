@@ -3,6 +3,7 @@ import com.example.Journal.Entity.Ding;
 import com.example.Journal.Entity.User;
 import com.example.Journal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties.Http;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.bson.types.ObjectId;
 import java.util.Optional;
 import java.util.List;
@@ -41,7 +43,6 @@ class controller{
     }
     @PostMapping("/name/{title}")
     public Ding change(@PathVariable String title, @RequestBody Ding ding){
-        
     Ding data = service.findByTitle(title);
         if(data!=null){
             data.setContent(ding.getContent());
@@ -49,9 +50,15 @@ class controller{
         }
         return data;
     }
+
+    @GetMapping("/name/{title}")
+    public ResponseEntity<Ding> getBytitle(@PathVariable String title){
+        return new ResponseEntity<>(service.findByTitle(title), HttpStatus.OK);
+    }
+
     @PostMapping("/{username}")
     public ResponseEntity<Ding> getbody(@RequestBody Ding ding , @PathVariable String username) {
-        User user = userService.findByUsername(username);
+        User user = userService.findByusername(username);
         if(user==null) {
             user = new User();
             user.setUsername(username);
@@ -71,7 +78,7 @@ class controller{
     }
     @GetMapping("/getAll/{username}")
     public ResponseEntity<List<Ding>> getDingByUsername(@PathVariable String username){
-        User user = userService.findByUsername(username);
+        User user = userService.findByusername(username);
         if(user != null && user.getUsersdata().size() != 0 ){
             return new ResponseEntity<>(user.getUsersdata(),HttpStatus.OK);
         }
