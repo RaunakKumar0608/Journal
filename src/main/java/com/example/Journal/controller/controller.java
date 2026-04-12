@@ -28,16 +28,22 @@ class controller{
     @PostMapping("/id/{id}")
     public boolean update(@RequestBody Ding ding , @PathVariable ObjectId id){
         
-    Ding data = service.getDing(id).get();
+    Ding data = service.getDing(id).orElse(null);
         if(data != null){
             data.setContent(
             ding.getContent());
             data.setTitle(
             ding.getTitle());
-            service.createDing(data);   
+            service.createDing(data);
             return true;
         }
         return false;
+    }
+
+    @PostMapping
+    public ResponseEntity<Ding> create(@RequestBody Ding ding){
+        return new ResponseEntity<>(service.createDing(ding),HttpStatus.OK);
+
     }
     
     @PostMapping("/name/{title}")
@@ -56,7 +62,7 @@ class controller{
     }
 
     @PostMapping("/{username}")
-    public ResponseEntity<Ding> getbody(@RequestBody Ding ding , @PathVariable String username) {
+    public ResponseEntity<User> getbody(@RequestBody Ding ding , @PathVariable String username) {
         User user = userService.findByusername(username);
         if(user==null) {
             user = new User();
@@ -65,7 +71,7 @@ class controller{
         service.createDing(ding);
         user.getUsersdata().add(ding);
         userService.createUser(user);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(user,HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

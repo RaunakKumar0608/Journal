@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -14,10 +16,14 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class User {
-    @Id
-    private ObjectId id;
+    
+    @Indexed
     private String username;
     private String password;
+    
+    @Id
+    private ObjectId id;
     @DBRef
     private List<Ding> usersdata = new ArrayList<>();
+    private List<String> roles;
 }
