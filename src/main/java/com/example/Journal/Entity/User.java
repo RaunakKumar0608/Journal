@@ -24,6 +24,6 @@ public class User {
     @Id
     private ObjectId id;
     @DBRef
-    private List<Ding> usersdata = new ArrayList<>();
+    private List<Journal> usersdata = new ArrayList<>();
     private List<String> roles;
 }

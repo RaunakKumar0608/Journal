@@ -5,10 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-@Document(collection = "Ding")
+@Document(collection = "Journal")
 @Data
 @RequiredArgsConstructor
-public class Ding{
+public class Journal{
     String content;
     String title;
     @Id

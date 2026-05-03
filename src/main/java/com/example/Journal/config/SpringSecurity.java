@@ -1,8 +1,6 @@
 package com.example.Journal.config;
-
 import com.example.Journal.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -32,7 +30,7 @@ public class SpringSecurity {
                 .httpBasic(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .build();
-    }
+            }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

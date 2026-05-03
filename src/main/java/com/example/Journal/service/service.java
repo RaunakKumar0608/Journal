@@ -7,18 +7,17 @@ import java.util.Optional;
 import com.example.Journal.Entity.*;
 import com.example.Journal.Dingrepo.*;
 
-
 @Service
 public class service {
 
     @Autowired
     private Dingrepo dingrepo;
 
-    public Ding createDing(Ding ding) {
+    public Journal createDing(Journal ding) {        
         return dingrepo.save(ding);
     }
 
-    public Optional<Ding> getDing(ObjectId id) {
+    public Optional<Journal> getDing(ObjectId id) {
         return dingrepo.findById(id);
     }
 
@@ -31,8 +30,8 @@ public class service {
 
     }
 
-    public List<Ding> getAll(){
-        List<Ding> listOfDing = dingrepo.findAll();
+    public List<Journal> getAll(){
+        List<Journal> listOfDing = dingrepo.findAll();
         return listOfDing;
     }
 
@@ -41,8 +40,12 @@ public class service {
         return true;
     }
     
-    public Ding findByTitle(String name){
+    public Journal findByTitle(String name){
         return dingrepo.findBytitle(name);
+    }
+
+    public Optional<Journal> findById(ObjectId id){
+        return dingrepo.findById(id);
     }
 
 }

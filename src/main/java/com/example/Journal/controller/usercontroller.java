@@ -79,20 +79,6 @@ public class usercontroller{
             userService.createUser(userIndb);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
-
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
-
-    @PostMapping("/username/{username}")
-    public ResponseEntity<User> update(@PathVariable String username,@RequestBody User user){
-        User data = userService.findByusername(username);
-        if(data!=null){
-            //data.setUsername(data.getUsername());
-            data.setPassword(user.getPassword());
-            data.setUsername(user.getUsername());
-            userService.createUser(data);
-            return new ResponseEntity<>(data,HttpStatus.OK);
-        }
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
