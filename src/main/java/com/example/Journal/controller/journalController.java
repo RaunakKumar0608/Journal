@@ -1,7 +1,11 @@
 package com.example.Journal.controller;
+
 import com.example.Journal.Entity.Journal;
 import com.example.Journal.Entity.User;
 import com.example.Journal.service.*;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +22,14 @@ import org.springframework.http.HttpStatus;
 import org.bson.types.ObjectId;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/journal")
-class controller{
+class JournalController{
+
     @Autowired
-    private service service;
+    private JournalService service;
+
     @Autowired
     private UserService userService;    
     
@@ -56,12 +63,16 @@ class controller{
             if(ping.getId().equals(id)){
                 
                 Journal data = service.findById(ping.getId()).orElse(null);
-                data.setContent(
-                    ding.getContent());
-                    data.setTitle(
-                        ding.getTitle());
-                        service.createDing(data);
-                        return true;             
+                try{
+                    data.setContent(
+                        ding.getContent());
+                        data.setTitle(
+                            ding.getTitle());
+                            service.createDing(data);
+                            return true;             
+                        }catch(Exception e){
+                            log.error("Error ",e);
+                        }
             }
         }
         return false;

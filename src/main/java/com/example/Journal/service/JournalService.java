@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import com.example.Journal.Entity.*;
-import com.example.Journal.Dingrepo.*;
+import com.example.Journal.repositories.*;
 
 @Service
-public class service {
+public class JournalService {
 
     @Autowired
-    private Dingrepo dingrepo;
+    private journalRepo dingrepo;
 
     public Journal createDing(Journal ding) {        
         return dingrepo.save(ding);

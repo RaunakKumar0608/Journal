@@ -2,12 +2,18 @@ package com.example.Journal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 @SpringBootApplication
 public class JournalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JournalApplication.class, args);
+		
+		ConfigurableApplicationContext a = SpringApplication.run(JournalApplication.class, args);
+		ConfigurableEnvironment environment = a.getEnvironment();
+		System.out.println();
+		System.out.println(environment.getActiveProfiles()[0]);
 	}
 
 }

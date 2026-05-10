@@ -9,21 +9,29 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Document(collection = "user")
 @Data
-@RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     
-    @Indexed
+    @Indexed(unique = true)
     private String username;
     private String password;
     
     @Id
     private ObjectId id;
+
     @DBRef
+    @Builder.Default
     private List<Journal> usersdata = new ArrayList<>();
-    private List<String> roles;
+
+    @Builder.Default
+    private List<String> roles = new ArrayList<>();
 }

@@ -12,17 +12,14 @@ import com.example.Journal.service.UserService;
 
 @RestController
 @RequestMapping("/public")
-public class check {
-     @Autowired
+
+public class Check {
+
+    @Autowired
     private UserService userService;
 
     @PostMapping
-    public String createUser(@RequestBody User user) {
-            User name1 = userService.findByusername(user.getUsername());
-            if(name1 == null){
-            userService.createUser(user);
-            return "balle balle";
-            }
-            return "oye teri";
+    public boolean createUser(@RequestBody User user) {
+            return userService.createUser(user);
         }
 }

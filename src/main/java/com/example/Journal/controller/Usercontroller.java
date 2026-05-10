@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.Journal.Entity.User;
 import com.example.Journal.service.UserService;
+import com.example.Journal.Entity.User;
 import org.bson.types.ObjectId;
 import java.util.List;
-
+    
 @RestController
 @RequestMapping("/users")
-public class usercontroller{
+public class Usercontroller{
 
     @Autowired
     private UserService userService;

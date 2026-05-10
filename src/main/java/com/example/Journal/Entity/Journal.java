@@ -1,5 +1,4 @@
 package com.example.Journal.Entity;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
