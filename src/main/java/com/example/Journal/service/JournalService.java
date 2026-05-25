@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
-import com.example.Journal.Entity.*;
+import com.example.Journal.entity.*;
 import com.example.Journal.repositories.*;
 
 @Service

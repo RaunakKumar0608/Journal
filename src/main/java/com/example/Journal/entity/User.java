@@ -1,4 +1,4 @@
-package com.example.Journal.Entity;
+package com.example.Journal.entity;
 
 import java.util.ArrayList;
 import java.util.List;

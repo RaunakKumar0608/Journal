@@ -1,7 +1,7 @@
 package com.example.Journal.controller;
 
-import com.example.Journal.Entity.Journal;
-import com.example.Journal.Entity.User;
+import com.example.Journal.entity.Journal;
+import com.example.Journal.entity.User;
 import com.example.Journal.service.*;
 
 import lombok.extern.slf4j.Slf4j;

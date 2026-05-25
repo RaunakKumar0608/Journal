@@ -1,6 +1,6 @@
 package com.example.Journal.repositories; 
 import org.bson.types.ObjectId;
-import com.example.Journal.Entity.User;
+import com.example.Journal.entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepo extends MongoRepository<User, ObjectId> {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.Journal.service.UserService;
-import com.example.Journal.Entity.User;
+import com.example.Journal.entity.User;
 import org.bson.types.ObjectId;
 import java.util.List;
     

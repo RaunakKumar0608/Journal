@@ -1,12 +1,11 @@
 package com.example.Journal.service;
+import com.example.Journal.entity.User;
+import org.springframework.stereotype.Component;
+import com.example.Journal.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
-
-import com.example.Journal.Entity.User;
-import com.example.Journal.repositories.UserRepo;
 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {

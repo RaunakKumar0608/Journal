@@ -1,5 +1,5 @@
 package com.example.Journal.repositories;
-import com.example.Journal.Entity.*;
+import com.example.Journal.entity.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

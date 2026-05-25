@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Journal.Entity.User;
+import com.example.Journal.entity.User;
 
 import com.example.Journal.service.UserService;
 
