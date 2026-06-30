@@ -1,0 +1,14 @@
+# spring:
+#   profiles:
+#     active: prod
+  
+# logging:
+#   level:
+#     com:
+#       example:
+#         Journal: ERROR
+
+# logging:
+#   level:
+#     root: INFO
+          
